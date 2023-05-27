@@ -41,11 +41,9 @@
                         v-for="option in options"
                         :key="option.key"
                     >
-                        <div class="grid grid-cols-2">
-                            <span class="option-name">{{ option.label }}</span>
-                            <span class="option-value">
-                                {{ recipe[option.key as keyof IRecipe]}}
-                            </span>
+                        <div class="option-name">{{ option.label }}</div>
+                        <div class="option-value">
+                            {{ recipe[option.key as keyof IRecipe].toString() }}
                         </div>
                     </li>
                 </ul>
@@ -75,7 +73,7 @@
                 }
 
                 & .option-name {
-                    width: 200px;
+                    margin-bottom: .2rem;
                     color: #7B7B7B;
                 }
             }
