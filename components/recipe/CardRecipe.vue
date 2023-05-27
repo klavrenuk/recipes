@@ -49,11 +49,7 @@
         margin: 0 1rem 1rem 0;
         padding: 0 1rem 24px;
         overflow: hidden;
-        border: 1px solid red;
-
-        &:hover {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
 
         &-img {
             margin-bottom: 1rem;
