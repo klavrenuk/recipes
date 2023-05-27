@@ -1,12 +1,15 @@
 <script setup lang="ts">
+    import HeaderGeneral from '~/components/header/HeaderGeneral';
     import SearchRecipes from '~/components/search/SearchRecipes.vue';
 </script>
 
 <template>
     <div class="layout_recipes">
-        <header class="layout_recipes-header">
-            <SearchRecipes />
-        </header>
+        <HeaderGeneral>
+            <template>
+                <SearchRecipes />
+            </template>
+        </HeaderGeneral>
 
         <main class="layout_recipes-main">
             <div class="container mx-auto">
@@ -17,14 +20,5 @@
 </template>
 
 <style lang="less">
-    .layout_recipes {
-        &-header {
-            height: 56px;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid #E8E8E8;
-            padding: 1rem 0;
-            display: flex;
-            justify-content: center;
-        }
-    }
+    .layout_recipes {}
 </style>

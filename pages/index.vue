@@ -9,8 +9,6 @@
 
     const recipes:IRecipe[] = [];
     const recipesStore = useRecipes();
-
-    console.log(recipesStore.recipes);
 </script>
 
 <template>

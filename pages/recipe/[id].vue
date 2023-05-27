@@ -1,13 +1,84 @@
-<template>
-    <h1>Recipe Id</h1>
-</template>
+<script lang="ts" setup>
+    import {IRecipe} from "~/interfaces/Recipe";
+    import {IListOption} from '~/interfaces/Lists';
 
-<script setup>
     definePageMeta({
-        layout: 'layout-recipes',
+        layout: 'default',
     });
+
+    const recipe:IRecipe = {
+        id: 1,
+        name: 'Recipes#1',
+        description: 'Arco is a not a theme but a special framework for website building. It is deeper than just a design. You can download this free WordPress theme along with the logo PSD file and create your own Logotype, upload it to your blog, band web page or corporate website. So all your web page appearance would be in the same style as it is supposed to be. Adjust several tooglers in the dashboard of your website and enjoy the visualization on the front end. So easy and fast! Get it and try out right away!\n',
+        ingredients: ['Banana', 'apple'],
+        image: '/images/category-title.svg',
+        time: 20
+    };
+
+    const options:IListOption[] = [
+        {key: 'name', label: 'Имя'},
+        {key: 'ingredients', label: 'Ингредиенты'},
+        {key: 'time', label: 'Время готовка(мин)'},
+        {key: 'description', label: 'Описание'}
+    ];
 </script>
 
-<style scoped>
+<template>
+    <div class="recipe">
+        <h1 class="font-bold title title-section">{{ recipe.name }}</h1>
 
+        <div class="recipe-content">
+            <div class="flex item-start">
+                <div class="recipe-img">
+                    <img :src="recipe.image"
+                         :alt="recipe.name"
+                         loading="lazy"
+                    />
+                </div>
+
+                <ul class="recipe-options">
+                    <li class="recipe-options-item"
+                        v-for="option in options"
+                        :key="option.key"
+                    >
+                        <div class="grid grid-cols-2">
+                            <span class="option-name">{{ option.label }}</span>
+                            <span class="option-value">
+                                {{ recipe[option.key as keyof IRecipe]}}
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>
+
+<style lang="less">
+    .recipe {
+        &-img {
+            width: 500px;
+            height: 500px
+        }
+
+        &-options {
+            padding-left: 35px;
+
+            &-item {
+                margin-bottom: 1rem;
+                padding-bottom: 1rem;
+                border-bottom: 1px solid #ccc;
+
+                &:last-child {
+                    margin-bottom: 0;
+                    border-bottom: none;
+                }
+
+                & .option-name {
+                    width: 200px;
+                    color: #7B7B7B;
+                }
+            }
+        }
+    }
 </style>
