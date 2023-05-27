@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+@import "config";
+@import "buttons";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #272727;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.title {
+  margin-bottom: 2rem;
+
+  &-section {
+    font-size: 36px;
+  }
+}
+
+.toggle_view_effect {
+  opacity: 0;
+
+  &.active {
+    opacity: 1;
+    transition: opacity .3s linear;
+  }
+}
+
+.break-word {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+::selection {
+  color: #000;
+  background: #FFC800;
+}
+
+a {
+  color: @colorLink;
+
+  &:hover, &:active {
+    color: #272727;
+  }
+}
+
+&::-webkit-scrollbar {
+  width: 8px;
+}
+
+&::-webkit-scrollbar-track {
+  background: #E9E9E9;
+}
+
+&::-webkit-scrollbar-thumb {
+  background-color: #D2D2D2;
+  border-radius: 27px;
+  border: 3px solid #D2D2D2;
+
+  &:hover {
+    background-color: #D2D2D2;
+  }
+}
+
+.icon {
+  height: 24px;
+  width: 24px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center center;
+}

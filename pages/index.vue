@@ -5,6 +5,8 @@
     import {IRecipe} from "~/interfaces/Recipe";
     import CardRecipe from '~/components/recipe/CardRecipe';
 
+    definePageMeta({ layout: "layout-recipes" });
+
     const recipes:IRecipe[] = [];
     const recipesStore = useRecipes();
 
@@ -19,7 +21,7 @@
 
         <ul class="recipes-list">
             <li class="recipes-list-item"
-                v-for="recipe in recipes"
+                v-for="recipe in recipesStore.recipes"
                 :key="recipe.id"
             >
                 <CardRecipe />
