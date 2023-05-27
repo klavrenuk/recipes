@@ -1,8 +1,9 @@
 <template>
-    <h1>Page recipe</h1>
+    <h1>Recipe Id</h1>
 </template>
 
-<script lant="ts" setup>
+<script lang="ts">
+
 </script>
 
 <style scoped>

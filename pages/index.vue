@@ -1,34 +1,29 @@
 <script lang="ts" setup>
-    import RecipeTableCell from '~/components/table/RecipeTableCell';
+    console.log('start');
 
-    import {ITHead} from "~/interfaces/Table";
+    import { useRecipes } from '~/store/recipes';
     import {IRecipe} from "~/interfaces/Recipe";
+    import CardRecipe from '~/components/recipe/CardRecipe';
 
-    definePageMeta({
-        layout: 'default',
-    });
-
-
-    const listTableHeaders:ITHead[] = [
-        {key: 'name', text: 'название'},
-        {key: 'description', text: 'описание'},
-        {key: 'ingredients', text: 'список ингредиентов'},
-        {key: 'image', text: 'изображение'},
-        {key: 'time', text: 'время приготовления'}
-    ];
     const recipes:IRecipe[] = [];
+    const recipesStore = useRecipes();
 
+    console.log(recipesStore.recipes);
 </script>
 
 <template>
     <div class="recipes">
+        <h1 class="recipes-title font-bold">
+            Рецепты
+        </h1>
 
-        <p class="font-bold">Main page</p>
+        <ul class="recipes-list">
+            <li class="recipes-list-item"
+                v-for="recipe in recipes"
+                :key="recipe.id"
+            >
+                <CardRecipe />
+            </li>
+        </ul>
     </div>
 </template>
-
-<style lang="less">
-    .recipes {
-
-    }
-</style>
