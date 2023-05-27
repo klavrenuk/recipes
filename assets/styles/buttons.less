@@ -1,8 +1,11 @@
 @import 'config';
 
 .btn {
+  padding: 10px 10px;
+  border-radius: 6px;
+  color: #272727;
+
   &.primary {
-    padding: 11px 10px;
     color: #272727;
     border: 1px solid @yellow;
     background: @yellow;
@@ -10,6 +13,17 @@
     &:hover, &:active {
       border-color: @yellowDark;
       background: @yellowDark;
+    }
+  }
+
+  &-danger {
+    border-color: @colorDanger;
+    color: #fff;
+    background: @colorDanger;
+
+    &:hover, &:active {
+      border-color: #FF3300;
+      background: #FF3300;
     }
   }
 

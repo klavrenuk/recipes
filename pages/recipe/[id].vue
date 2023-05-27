@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+    import CrumbsGeneral from '~/components/crumbs/CrumbsGeneral';
+
     import {IRecipe} from "~/interfaces/Recipe";
     import {IListOption} from '~/interfaces/Lists';
 
@@ -25,7 +27,21 @@
 
 <template>
     <div class="recipe">
-        <h1 class="font-bold title title-section">{{ recipe.name }}</h1>
+        <div class="recipe-header">
+            <CrumbsGeneral />
+
+            <div class="grid grid-cols-2">
+                <h1 class="font-bold title title-section">{{ recipe.name }}</h1>
+                <div class="recipe-header-control text-right">
+                    <button class="btn btn-danger">
+                        Удалить
+                    </button>
+                    <button class="btn primary recipe_edit">
+                        Редактировать
+                    </button>
+                </div>
+            </div>
+        </div>
 
         <div class="recipe-content">
             <div class="flex item-start">
@@ -54,6 +70,18 @@
 
 <style lang="less">
     .recipe {
+        &-header {
+            & .crumbs {
+                margin-bottom: 2rem;
+            }
+
+            &-control {
+                & .recipe_edit {
+                    margin-left: 1rem;
+                }
+            }
+        }
+
         &-img {
             width: 500px;
             height: 500px
