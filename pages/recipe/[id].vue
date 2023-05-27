@@ -2,8 +2,10 @@
     <h1>Recipe Id</h1>
 </template>
 
-<script lang="ts">
-
+<script setup>
+    definePageMeta({
+        layout: 'layout-recipes',
+    });
 </script>
 
 <style scoped>

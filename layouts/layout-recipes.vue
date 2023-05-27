@@ -4,7 +4,6 @@
 
 <template>
     <div class="layout_recipes">
-        Hello
         <header class="layout_recipes-header">
             <SearchGeneral />
         </header>

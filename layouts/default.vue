@@ -3,7 +3,6 @@
 
 <template>
     <div class="layout_default">
-        DEfault
         <main>
             <div class="container mx-auto">
                 <slot></slot>
@@ -11,9 +10,3 @@
         </main>
     </div>
 </template>
-
-<style lang="less">
-    .layout_default {
-
-    }
-</style>
