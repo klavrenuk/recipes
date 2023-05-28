@@ -1,1 +1,0 @@
-import{b as a,o as r,e as _,y as c}from"./entry.6a2a95d5.js";const n={},s={class:"header_general"};function t(e,o){return r(),_("header",s,[c(e.$slots,"default",{},void 0,!0)])}const l=a(n,[["render",t],["__scopeId","data-v-c0a561c9"]]);export{l as H};
