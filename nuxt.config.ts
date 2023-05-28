@@ -2,6 +2,10 @@ export default defineNuxtConfig({
     app: {
         baseURL: '/recipes/'
     },
+    target: 'static',
+    router: {
+        base: '/recipes/', //eg:- /crstnmac.github.io/
+    },
 
     tailwindcss: {
         configPath: "~/tailwind.config.js",

@@ -17,7 +17,7 @@ export const useRecipes = defineStore({
 
     actions: {
         async create():Promise<void> {
-            fetch('http://localhost:3000/posts', {
+            fetch('https://my-json-server.typicode.com/klavrenuk/recipes/recipes', {
                 method: 'POST',
                 body: JSON.stringify({
                     title: 'foo',
@@ -36,8 +36,10 @@ export const useRecipes = defineStore({
         async loadRecipes():Promise<void> {
             this.isLoading = true;
 
+            console.log('console.run');
+
             axios({
-                url: 'http://localhost:3000/recipes',
+                url: 'https://my-json-server.typicode.com/klavrenuk/recipes/recipes',
                 method: 'GET'
             })
                 .then((response:unknown) => {
