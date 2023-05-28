@@ -1,15 +1,6 @@
 export default defineNuxtConfig({
     app: {
         baseURL: '/recipes/',
-        ssr: true,
-        head: {
-            htmlAttrs: [
-                {lang: "ru"}
-            ],
-            title: 'Recipes',
-            charset: 'utf-8',
-            viewport: 'width=device-width, initial-scale=1',
-        }
     },
 
     tailwindcss: {
