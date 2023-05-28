@@ -1,5 +1,0 @@
-const CardRecipe_vue_vue_type_style_index_0_lang = ".card_recipe{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);height:320px;margin:0 1rem 1rem 0;overflow:hidden;padding:0 1rem 24px;width:254px}.card_recipe-img{height:110px;margin-bottom:1rem}.card_recipe-img img{height:100%;width:100%}.card_recipe-name{font-size:18px}.card_recipe-info{margin:.5rem 0}.card_recipe-info .info-ingredients,.card_recipe-info .info-time{color:#7b7b7b}.card_recipe-info .info-ingredients-icon,.card_recipe-info .info-time-icon{display:inline-block;height:12px;width:12px}.card_recipe-info .info-ingredients{margin-right:1rem}.card_recipe-info .info-ingredients-icon{background:url(" + __publicAssetsURL("images/icon-ingredients.svg") + ") 50% no-repeat;margin-right:.4rem}.card_recipe-info .info-time-icon{background:url(" + __publicAssetsURL("images/icon-time.svg") + ") 50% no-repeat;margin-right:.4rem}.card_recipe-description{color:#141414;font-size:15px;height:95px;line-height:130%;white-space:normal}";
-export {
-  CardRecipe_vue_vue_type_style_index_0_lang as default
-};
-//# sourceMappingURL=CardRecipe-styles-1.mjs-1b96dc53.js.map

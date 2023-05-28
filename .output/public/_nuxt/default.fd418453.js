@@ -1,0 +1,1 @@
+import{H as t}from"./HeaderGeneral.1f0944ff.js";import{k as o,e as s,i as n,u as r,h as e,y as l,o as c}from"./entry.99667924.js";const d={class:"layout_default"},u={class:"container mx-auto"},p=o({__name:"default",setup(_){return(a,i)=>(c(),s("div",d,[n(r(t)),e("main",null,[e("div",u,[l(a.$slots,"default")])])]))}});export{p as default};

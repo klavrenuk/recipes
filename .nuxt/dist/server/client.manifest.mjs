@@ -4,13 +4,13 @@ export default {
     "file": "HeaderGeneral.e88a86e9.css",
     "src": "HeaderGeneral.css"
   },
-  "_HeaderGeneral.545b74d6.js": {
+  "_HeaderGeneral.1f0944ff.js": {
     "resourceType": "script",
     "module": true,
     "css": [
       "HeaderGeneral.e88a86e9.css"
     ],
-    "file": "HeaderGeneral.545b74d6.js",
+    "file": "HeaderGeneral.1f0944ff.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
@@ -19,10 +19,10 @@ export default {
     "file": "HeaderGeneral.e88a86e9.css",
     "resourceType": "style"
   },
-  "_nuxt-link.1b05956d.js": {
+  "_nuxt-link.92fb351e.js": {
     "resourceType": "script",
     "module": true,
-    "file": "nuxt-link.1b05956d.js",
+    "file": "nuxt-link.92fb351e.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
@@ -30,9 +30,9 @@ export default {
   "layouts/default.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "default.036f0d7f.js",
+    "file": "default.fd418453.js",
     "imports": [
-      "_HeaderGeneral.545b74d6.js",
+      "_HeaderGeneral.1f0944ff.js",
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
@@ -46,10 +46,12 @@ export default {
   "layouts/layout-recipes.vue": {
     "resourceType": "script",
     "module": true,
-    "css": [],
-    "file": "layout-recipes.a155bc64.js",
+    "css": [
+      "layout-recipes.13249fc5.css"
+    ],
+    "file": "layout-recipes.ae78deb8.js",
     "imports": [
-      "_HeaderGeneral.545b74d6.js",
+      "_HeaderGeneral.1f0944ff.js",
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
@@ -67,10 +69,12 @@ export default {
   "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue": {
     "resourceType": "script",
     "module": true,
-    "css": [],
-    "file": "error-404.6837b701.js",
+    "css": [
+      "error-404.8bdbaeb8.css"
+    ],
+    "file": "error-404.051ee4e9.js",
     "imports": [
-      "_nuxt-link.1b05956d.js",
+      "_nuxt-link.92fb351e.js",
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
@@ -88,8 +92,10 @@ export default {
   "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue": {
     "resourceType": "script",
     "module": true,
-    "css": [],
-    "file": "error-500.be934b7f.js",
+    "css": [
+      "error-500.b63a96f5.css"
+    ],
+    "file": "error-500.85e4a5e5.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -116,7 +122,7 @@ export default {
       "layouts/layout-recipes.vue",
       "virtual:nuxt:C:/projects/recipes1/.nuxt/error-component.mjs"
     ],
-    "file": "entry.e5c42f2b.js",
+    "file": "entry.99667924.js",
     "isEntry": true,
     "src": "node_modules/nuxt/dist/app/entry.js"
   },
@@ -132,11 +138,13 @@ export default {
   "pages/index.vue": {
     "resourceType": "script",
     "module": true,
-    "css": [],
-    "file": "index.674fbfcc.js",
+    "css": [
+      "index.adf395c1.css"
+    ],
+    "file": "index.044979f0.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_nuxt-link.1b05956d.js"
+      "_nuxt-link.92fb351e.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/index.vue"
@@ -153,10 +161,12 @@ export default {
   "pages/recipe/[id].vue": {
     "resourceType": "script",
     "module": true,
-    "css": [],
-    "file": "_id_.c4f642a4.js",
+    "css": [
+      "_id_.9d9d060c.css"
+    ],
+    "file": "_id_.44468e93.js",
     "imports": [
-      "_nuxt-link.1b05956d.js",
+      "_nuxt-link.92fb351e.js",
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
@@ -174,8 +184,10 @@ export default {
   "pages/recipe/index.vue": {
     "resourceType": "script",
     "module": true,
-    "css": [],
-    "file": "index.9c6c73c2.js",
+    "css": [
+      "index.d78c231c.css"
+    ],
+    "file": "index.a03d0349.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -193,7 +205,7 @@ export default {
       "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
       "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue"
     ],
-    "file": "error-component.d20a6e7d.js",
+    "file": "error-component.c524c342.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],

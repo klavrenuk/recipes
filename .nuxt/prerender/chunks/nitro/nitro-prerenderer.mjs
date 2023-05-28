@@ -493,7 +493,7 @@ const errorHandler = (async function errorhandler(error, event) {
   event.node.res.end(await res.text());
 });
 
-const _lazy_FjmbOO = () => import('../renderer.mjs').then(function (n) { return n.r; });
+const _lazy_FjmbOO = () => import('../renderer.mjs');
 
 const handlers = [
   { route: '/**', handler: _lazy_FjmbOO, lazy: true, middleware: false, method: undefined }
