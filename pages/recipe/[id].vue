@@ -2,7 +2,7 @@
     import CrumbsGeneral from '~/components/crumbs/CrumbsGeneral';
 
     import {IRecipe} from "~/interfaces/Recipe";
-    import {IListOption} from '~/interfaces/Lists';
+    import {IListOption} from '~/interfaces/Form';
 
     definePageMeta({
         layout: 'default',
@@ -19,6 +19,7 @@
 
     const options:IListOption[] = [
         {key: 'name', label: 'Имя'},
+        {key: 'image', label: 'Картинка'},
         {key: 'ingredients', label: 'Ингредиенты'},
         {key: 'time', label: 'Время готовка(мин)'},
         {key: 'description', label: 'Описание'}

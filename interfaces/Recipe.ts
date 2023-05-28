@@ -1,7 +1,7 @@
 export interface IRecipe {
-    id: number | null,
+    id: number,
     name: string,
-    description: string,
+    description?: string,
     ingredients: string[],
     image: string,
     time: number

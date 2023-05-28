@@ -1,0 +1,33 @@
+@import 'config';
+
+@borderColorDefault: #DBDBDB;
+
+.form-group-label {
+  margin-bottom: .5rem;
+  display: block;
+}
+
+.recipe_textarea {
+  height: 120px;
+  min-width: 120px;
+  width: 100%;
+  padding: 10px 1rem;
+  border: 1px solid @borderColorDefault;
+  border-radius: 6px;
+
+  &:hover {
+    border-color: @yellow;
+  }
+}
+
+.recipe_input {
+  height: 48px;
+  width: 100%;
+  padding: 10px 1rem;
+  border: 1px solid @borderColorDefault;
+  color: #7B7B7B;
+
+  &:focus {
+    border-color: @yellow;
+  }
+}
