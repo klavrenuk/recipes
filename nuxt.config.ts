@@ -1,5 +1,6 @@
 export default defineNuxtConfig({
     app: {
+        baseURL: '/recipes/',
         ssr: true,
         head: {
             htmlAttrs: [

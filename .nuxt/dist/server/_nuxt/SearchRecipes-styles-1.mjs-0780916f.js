@@ -1,0 +1,5 @@
+const SearchRecipes_vue_vue_type_style_index_0_lang = ".search_recipes{height:44px;max-width:570px;min-width:200px;position:relative;width:100%}.search_recipes-input{border:2px solid #ffc800;border-radius:6px;color:#7b7b7b;height:44px;padding:10px 60px 10px 15px;width:100%}.search_recipes-input:focus{border-color:#f7d145}.search_recipes-btn_clear,.search_recipes-btn_search{position:absolute;top:10px}.search_recipes-btn_clear{background-image:url(" + __publicAssetsURL("images/icon-search-clear.svg") + ");right:35px}.search_recipes-btn_clear:active,.search_recipes-btn_clear:hover{background-image:url(" + __publicAssetsURL("images/icon-search-clear-effect.svg") + ")}.search_recipes-btn_search{background-image:url(" + __publicAssetsURL("images/magnifier.svg") + ");right:10px}.search_recipes-btn_search:active,.search_recipes-btn_search:hover{background-image:url(" + __publicAssetsURL("images/magnifier-effect.svg") + ")}";
+export {
+  SearchRecipes_vue_vue_type_style_index_0_lang as default
+};
+//# sourceMappingURL=SearchRecipes-styles-1.mjs-0780916f.js.map
