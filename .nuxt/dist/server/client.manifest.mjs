@@ -46,9 +46,7 @@ export default {
   "layouts/layout-recipes.vue": {
     "resourceType": "script",
     "module": true,
-    "css": [
-      "layout-recipes.13249fc5.css"
-    ],
+    "css": [],
     "file": "layout-recipes.ae78deb8.js",
     "imports": [
       "_HeaderGeneral.1f0944ff.js",
@@ -69,9 +67,7 @@ export default {
   "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue": {
     "resourceType": "script",
     "module": true,
-    "css": [
-      "error-404.8bdbaeb8.css"
-    ],
+    "css": [],
     "file": "error-404.051ee4e9.js",
     "imports": [
       "_nuxt-link.92fb351e.js",
@@ -92,9 +88,7 @@ export default {
   "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue": {
     "resourceType": "script",
     "module": true,
-    "css": [
-      "error-500.b63a96f5.css"
-    ],
+    "css": [],
     "file": "error-500.85e4a5e5.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
@@ -138,9 +132,7 @@ export default {
   "pages/index.vue": {
     "resourceType": "script",
     "module": true,
-    "css": [
-      "index.adf395c1.css"
-    ],
+    "css": [],
     "file": "index.044979f0.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
@@ -161,9 +153,7 @@ export default {
   "pages/recipe/[id].vue": {
     "resourceType": "script",
     "module": true,
-    "css": [
-      "_id_.9d9d060c.css"
-    ],
+    "css": [],
     "file": "_id_.44468e93.js",
     "imports": [
       "_nuxt-link.92fb351e.js",
@@ -184,9 +174,7 @@ export default {
   "pages/recipe/index.vue": {
     "resourceType": "script",
     "module": true,
-    "css": [
-      "index.d78c231c.css"
-    ],
+    "css": [],
     "file": "index.a03d0349.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"

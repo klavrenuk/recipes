@@ -7,3 +7,6 @@ node_modules
 /**/.idea/*
 .idea
 .idea/*
+.nuxt
+.output
+dist
