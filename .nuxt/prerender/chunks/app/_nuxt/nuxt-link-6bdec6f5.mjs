@@ -1,5 +1,5 @@
-import { defineComponent, computed, ref, h, resolveComponent } from 'file://C:/projects/recipes/node_modules/vue/index.mjs';
-import { hasProtocol, parseURL, parseQuery, withTrailingSlash, withoutTrailingSlash } from 'file://C:/projects/recipes/node_modules/ufo/dist/index.mjs';
+import { defineComponent, computed, ref, h, resolveComponent } from 'file://C:/projects/recipes1/node_modules/vue/index.mjs';
+import { hasProtocol, parseURL, parseQuery, withTrailingSlash, withoutTrailingSlash } from 'file://C:/projects/recipes1/node_modules/ufo/dist/index.mjs';
 import { a as useRouter, n as navigateTo } from '../server.mjs';
 
 const firstNonUndefined = (...args) => args.find((arg) => arg !== void 0);

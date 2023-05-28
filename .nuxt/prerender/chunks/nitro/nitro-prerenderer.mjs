@@ -1,17 +1,17 @@
-import 'file://C:/projects/recipes/node_modules/node-fetch-native/dist/polyfill.mjs';
-import { defineEventHandler, handleCacheHeaders, createEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseStatus, setResponseHeader, getRequestHeaders, createApp, createRouter as createRouter$1, toNodeListener, fetchWithEvent, lazyEventHandler } from 'file://C:/projects/recipes/node_modules/h3/dist/index.mjs';
-import { createFetch as createFetch$1, Headers } from 'file://C:/projects/recipes/node_modules/ofetch/dist/node.mjs';
-import destr from 'file://C:/projects/recipes/node_modules/destr/dist/index.mjs';
-import { createCall, createFetch } from 'file://C:/projects/recipes/node_modules/unenv/runtime/fetch/index.mjs';
-import { createHooks } from 'file://C:/projects/recipes/node_modules/hookable/dist/index.mjs';
-import { snakeCase } from 'file://C:/projects/recipes/node_modules/scule/dist/index.mjs';
-import { klona } from 'file://C:/projects/recipes/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file://C:/projects/recipes/node_modules/defu/dist/defu.mjs';
-import { hash } from 'file://C:/projects/recipes/node_modules/ohash/dist/index.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery } from 'file://C:/projects/recipes/node_modules/ufo/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file://C:/projects/recipes/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file://C:/projects/recipes/node_modules/unstorage/drivers/fs.mjs';
-import { toRouteMatcher, createRouter } from 'file://C:/projects/recipes/node_modules/radix3/dist/index.mjs';
+import 'file://C:/projects/recipes1/node_modules/node-fetch-native/dist/polyfill.mjs';
+import { defineEventHandler, handleCacheHeaders, createEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseStatus, setResponseHeader, getRequestHeaders, createApp, createRouter as createRouter$1, toNodeListener, fetchWithEvent, lazyEventHandler } from 'file://C:/projects/recipes1/node_modules/h3/dist/index.mjs';
+import { createFetch as createFetch$1, Headers } from 'file://C:/projects/recipes1/node_modules/ofetch/dist/node.mjs';
+import destr from 'file://C:/projects/recipes1/node_modules/destr/dist/index.mjs';
+import { createCall, createFetch } from 'file://C:/projects/recipes1/node_modules/unenv/runtime/fetch/index.mjs';
+import { createHooks } from 'file://C:/projects/recipes1/node_modules/hookable/dist/index.mjs';
+import { snakeCase } from 'file://C:/projects/recipes1/node_modules/scule/dist/index.mjs';
+import { klona } from 'file://C:/projects/recipes1/node_modules/klona/dist/index.mjs';
+import defu, { defuFn } from 'file://C:/projects/recipes1/node_modules/defu/dist/defu.mjs';
+import { hash } from 'file://C:/projects/recipes1/node_modules/ohash/dist/index.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery } from 'file://C:/projects/recipes1/node_modules/ufo/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file://C:/projects/recipes1/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file://C:/projects/recipes1/node_modules/unstorage/drivers/fs.mjs';
+import { toRouteMatcher, createRouter } from 'file://C:/projects/recipes1/node_modules/radix3/dist/index.mjs';
 
 const inlineAppConfig = {};
 
@@ -105,7 +105,7 @@ new Proxy(/* @__PURE__ */ Object.create(null), {
   }
 });
 
-const serverAssets = [{"baseName":"server","dir":"C:/projects/recipes/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"C:/projects/recipes1/server/assets"}];
 
 const assets = createStorage();
 
@@ -117,10 +117,10 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:\\projects\\recipes","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:\\projects\\recipes\\server","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:\\projects\\recipes\\.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:\\projects\\recipes\\.nuxt\\cache","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:\\projects\\recipes1","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:\\projects\\recipes1\\server","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:\\projects\\recipes1\\.nuxt","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:\\projects\\recipes1\\.nuxt\\cache","ignore":["**/node_modules/**","**/.git/**"]}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -493,10 +493,10 @@ const errorHandler = (async function errorhandler(error, event) {
   event.node.res.end(await res.text());
 });
 
-const _lazy_bLm9m1 = () => import('../renderer.mjs').then(function (n) { return n.r; });
+const _lazy_FjmbOO = () => import('../renderer.mjs').then(function (n) { return n.r; });
 
 const handlers = [
-  { route: '/**', handler: _lazy_bLm9m1, lazy: true, middleware: false, method: undefined }
+  { route: '/**', handler: _lazy_FjmbOO, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {

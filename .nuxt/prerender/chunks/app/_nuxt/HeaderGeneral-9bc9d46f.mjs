@@ -1,5 +1,5 @@
-import { mergeProps, useSSRContext } from 'file://C:/projects/recipes/node_modules/vue/index.mjs';
-import { ssrRenderAttrs, ssrRenderSlot } from 'file://C:/projects/recipes/node_modules/vue/server-renderer/index.mjs';
+import { mergeProps, useSSRContext } from 'file://C:/projects/recipes1/node_modules/vue/index.mjs';
+import { ssrRenderAttrs, ssrRenderSlot } from 'file://C:/projects/recipes1/node_modules/vue/server-renderer/index.mjs';
 import { _ as _export_sfc } from '../server.mjs';
 
 const _sfc_main = {};

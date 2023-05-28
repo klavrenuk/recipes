@@ -114,7 +114,7 @@ export default {
     "dynamicImports": [
       "layouts/default.vue",
       "layouts/layout-recipes.vue",
-      "virtual:nuxt:C:/projects/recipes/.nuxt/error-component.mjs"
+      "virtual:nuxt:C:/projects/recipes1/.nuxt/error-component.mjs"
     ],
     "file": "entry.e5c42f2b.js",
     "isEntry": true,
@@ -186,7 +186,7 @@ export default {
     "file": "index.d78c231c.css",
     "resourceType": "style"
   },
-  "virtual:nuxt:C:/projects/recipes/.nuxt/error-component.mjs": {
+  "virtual:nuxt:C:/projects/recipes1/.nuxt/error-component.mjs": {
     "resourceType": "script",
     "module": true,
     "dynamicImports": [
@@ -198,6 +198,6 @@ export default {
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
-    "src": "virtual:nuxt:C:/projects/recipes/.nuxt/error-component.mjs"
+    "src": "virtual:nuxt:C:/projects/recipes1/.nuxt/error-component.mjs"
   }
 }

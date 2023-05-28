@@ -1,5 +1,5 @@
-import { useSSRContext, unref, mergeProps, defineAsyncComponent } from 'file://C:/projects/recipes/node_modules/vue/index.mjs';
-import { ssrRenderComponent } from 'file://C:/projects/recipes/node_modules/vue/server-renderer/index.mjs';
+import { useSSRContext, unref, mergeProps, defineAsyncComponent } from 'file://C:/projects/recipes1/node_modules/vue/index.mjs';
+import { ssrRenderComponent } from 'file://C:/projects/recipes1/node_modules/vue/server-renderer/index.mjs';
 
 const _sfc_main = {
   __name: "nuxt-error-page",

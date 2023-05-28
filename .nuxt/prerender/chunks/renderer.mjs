@@ -1,8 +1,8 @@
-import { createRenderer } from 'file://C:/projects/recipes/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { eventHandler, setResponseStatus, getQuery, createError, appendResponseHeader } from 'file://C:/projects/recipes/node_modules/h3/dist/index.mjs';
-import { stringify, uneval } from 'file://C:/projects/recipes/node_modules/devalue/index.js';
-import { joinURL, withoutTrailingSlash } from 'file://C:/projects/recipes/node_modules/ufo/dist/index.mjs';
-import { renderToString } from 'file://C:/projects/recipes/node_modules/vue/server-renderer/index.mjs';
+import { createRenderer } from 'file://C:/projects/recipes1/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { eventHandler, setResponseStatus, getQuery, createError, appendResponseHeader } from 'file://C:/projects/recipes1/node_modules/h3/dist/index.mjs';
+import { stringify, uneval } from 'file://C:/projects/recipes1/node_modules/devalue/index.js';
+import { joinURL, withoutTrailingSlash } from 'file://C:/projects/recipes1/node_modules/ufo/dist/index.mjs';
+import { renderToString } from 'file://C:/projects/recipes1/node_modules/vue/server-renderer/index.mjs';
 import { u as useNitroApp, a as useRuntimeConfig, g as getRouteRules } from './nitro/nitro-prerenderer.mjs';
 
 function defineRenderHandler(handler) {
