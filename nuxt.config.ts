@@ -1,14 +1,6 @@
 export default defineNuxtConfig({
-    ssr: false,
-    nitro: {
-        preset: 'service-worker'
-    },
     app: {
-        baseURL: '/recipes/',
-        ssr: false,
-        nitro: {
-            preset: 'service-worker'
-        }
+        baseURL: '/recipes/'
     },
 
     tailwindcss: {
