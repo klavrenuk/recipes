@@ -7,9 +7,9 @@
     "generate": "nuxi generate",
     "preview": "nuxi preview",
     "postinstall": "nuxi prepare",
-    "fserver": "json-server --watch db.json",
+    "json-server": "json-server --watch db.json",
     "deploy": "gh-pages --dotfiles -d .output/public",
-    "start": "npm-run-all -p deploy fserver"
+    "start": "npm-run-all -p dev json-server"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.7.0",

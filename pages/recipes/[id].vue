@@ -9,14 +9,8 @@
 
     import {IRecipe} from "~/interfaces/Recipe";
     import {IListOption} from "~/interfaces/Form";
+    import {IRoute} from "~/interfaces/Route";
 
-    const options:IListOption[] = [
-        {key: 'name', label: 'Имя', type: 'input', subtype: 'text', isRequired: true},
-        {key: 'image', label: 'Картинка', type: 'image', isRequired: true},
-        {key: 'ingredients', label: 'Ингредиенты', type: 'listItems', isRequired: true},
-        {key: 'time', label: 'Время готовка(мин)', type: 'input', subtype: 'number'},
-        {key: 'description', label: 'Описание', type: 'textarea'}
-    ];
 
     type TRecipe = Partial<IRecipe>;
 
@@ -26,7 +20,18 @@
     const invalidOptions = ref<string[]>([]);
     const isLoading = ref<boolean>(false);
     const recipesStore = useRecipes();
+    const {id} = useRoute().params;
+    const title = ref('Создание рецепта');
+    const isShowContent = ref(false);
 
+    const options:IListOption[] = [
+        {key: 'name', label: 'Имя', type: 'input', subtype: 'text', isRequired: true},
+        {key: 'image', label: 'Картинка', type: 'image', isRequired: true},
+        {key: 'ingredients', label: 'Ингредиенты', type: 'listItems', isRequired: true},
+        {key: 'time', label: 'Время готовка(мин)', type: 'input', subtype: 'number'},
+        {key: 'description', label: 'Описание', type: 'textarea'}
+    ];
+    const navList:IRoute = ref([]);
 
     const isValidRecipe = ():boolean => {
         invalidOptions.value = [];
@@ -39,11 +44,9 @@
             if(option.isRequired) {
                 if(!value) {
                     invalidOptions.value.push(option.key);
-                    console.log('here');
                     continue
                 }
 
-                console.log('value', value);
                 if(option.subtype === 'text' && !value.trim()) {
                     invalidOptions.value.push(option.key);
                 }
@@ -66,7 +69,6 @@
 
     const onSave = async () =>  {
         try {
-            isLoading.value = true;
             recipe.value.image = RefLoadFile.value[0].getValue();
             recipe.value.ingredients = RefIngredients.value[0].getValue();
 
@@ -91,17 +93,48 @@
         recipe.value = {};
     }
 
-    onMounted(() => {
-        // get recipy
-        recipe.value = recipesStore.recipe;
+    const setNavList = () => {
+        let name = 'Рецепт';
+
+        if(recipe.value && recipe.value.hasOwnProperty('id')) {
+            name = recipe.value.name || '';
+        }
+
+        const route:IRoute = {path: 'recipes/' + id, name: name};
+        navList.value.push(route);
+    }
+
+    const onClear = () => {
+        recipe.value = {};
+        RefIngredients.value[0].clear();
+    }
+
+    onMounted(async () => {
+        try {
+            if(id !== 'null') {
+                console.log('in null');
+                recipe.value = await recipesStore.getRecipe(id);
+                title.value = 'Редактирование ' + recipe.value.name;
+            }
+
+            recipesStore.setLoading();
+            setNavList();
+            isShowContent.value = true;
+
+
+        } catch(err) {
+            console.error(err);
+            isShowContent.value = false;
+        }
     })
 </script>
 
 <template>
     <div class="recipe">
-        <LoaderFullHeight v-if="isLoading" />
-        <div v-else>
-            <Crumbs />
+        <div v-if="isShowContent">
+            <Crumbs :navList="navList" />
+
+            <h1 class="recipe-title font-bold">{{ title }}</h1>
 
             <div class="grid grid-cols-1 gap-6">
                 <div class="form-group"
@@ -135,17 +168,21 @@
                     ></textarea>
 
                     <ListItems v-if="option.type === 'listItems'"
+                               :defaultValue="recipe[option.key as keyof IRecipy]"
                                ref="RefIngredients"
                     />
 
                     <LoadFile v-if="option.type === 'image'"
                               ref="RefLoadFile"
+                              :recipe="recipe"
                     />
                 </div>
             </div>
 
             <div class="recipe-control flex">
-                <button class="btn btn-link">Очистить</button>
+                <button class="btn btn-link"
+                        @click="onClear"
+                >Очистить</button>
                 <button class="btn primary"
                         @click="onSave"
                 >Сохранить</button>
@@ -156,8 +193,9 @@
 
 <style lang="less" scoped>
     .recipe {
-        & .crumbs {
-            margin-bottom: 2rem;
+        &-title {
+            margin: 1rem 0 2rem;
+            font-size: 30px;
         }
 
         & .form-group {

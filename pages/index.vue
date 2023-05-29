@@ -4,6 +4,7 @@
     import CardRecipe from '~/components/recipe/CardRecipe';
     import LoaderFullHeight from '~/components/loader/LoaderFullHeight';
     import RecipesEmpty from '~/components/recipe/RecipesEmpty';
+    import Crumbs from '~/components/crumbs/CrumbsGeneral';
 
     import {IRecipe} from "~/interfaces/Recipe";
 
@@ -16,28 +17,31 @@
 
     onMounted(() => {
         recipesStore.loadRecipes();
-        console.log('hello new after');
     })
 </script>
 
 <template>
     <div class="recipes">
-        <div>
-            <RecipesEmpty v-if="!recipesStore.recipes[0]" />
-            <div v-else>
-                <h1 class="recipes-title font-bold title title-section">
-                    Рецепты
-                </h1>
+        <RecipesEmpty v-if="!recipesStore.recipes[0]" />
 
-                <ul class="recipes-list flex items-center">
-                    <li class="recipes-list-item"
-                        v-for="recipe in recipesStore.recipes"
-                        :key="recipe.id"
-                    >
-                        <CardRecipe :recipe="recipe" />
-                    </li>
-                </ul>
-            </div>
+        <div v-else
+             class="toggle_view_effect"
+             :class="{'active': recipesStore.recipes[0]}"
+        >
+            <Crumbs :navList="[]" />
+
+            <h1 class="recipes-title font-bold title title-section">
+                Рецепты
+            </h1>
+
+            <ul class="recipes-list flex items-center">
+                <li class="recipes-list-item"
+                    v-for="recipe in recipesStore.recipes"
+                    :key="recipe.id"
+                >
+                    <CardRecipe :recipe="recipe" />
+                </li>
+            </ul>
         </div>
     </div>
 </template>

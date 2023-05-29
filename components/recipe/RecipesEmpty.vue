@@ -12,7 +12,7 @@
             и добавьте в неё статьи.
         </p>
         <NuxtLink class="btn primary recipes_empty-add"
-                  to="/recipe"
+                  to="/recipes/null"
         >
             Добавить
         </NuxtLink>

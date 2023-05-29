@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { defineStore } from 'pinia';
 import {IRecipe} from "~/interfaces/Recipe";
 
@@ -6,7 +5,7 @@ import {IRecipe} from "~/interfaces/Recipe";
 interface TodoState {
     recipes: IRecipe[],
     isLoading: boolean,
-    recipe: IRecipe | null
+    recipe: IRecipe
 }
 
 export const useRecipes = defineStore({
@@ -15,10 +14,14 @@ export const useRecipes = defineStore({
     state: (): TodoState => ({
         recipes: [],
         isLoading: true,
-        recipe: null
+        recipe: {}
     }),
 
     actions: {
+        setLoading(value:boolean = false) {
+            this.isLoading = value;
+        },
+
         setRecipe(recipe:IRecipe) {
             this.recipe = recipe;
         },
@@ -29,6 +32,7 @@ export const useRecipes = defineStore({
 
         create(recipe:IRecipe):Promise<boolean> {
             return new Promise((resolve, reject) => {
+                this.setLoading(true);
                 fetch('http://localhost:3000/recipes', {
                     method: 'POST',
                     body: JSON.stringify({
@@ -41,6 +45,7 @@ export const useRecipes = defineStore({
                     .then((response) => response.json())
                     .then((json) => resolve(true))
                     .catch((err:Error) => reject(err))
+                    .finally(() => this.setLoading());
             })
         },
 
@@ -65,29 +70,17 @@ export const useRecipes = defineStore({
         async loadRecipes():Promise<boolean> {
             return new Promise((resolve, reject) => {
                 this.isLoading = true;
-                // https://klavrenuk.github.io/recipes/
-
                 fetch('http://localhost:3000/recipes/')
                     .then((response) => response.json())
                     .then((json) => {
-                        resolve(json)
+                        this.recipes = json;
+                        resolve(true);
+
                     })
                     .catch((err) => reject(err))
                     .finally(() => {
                         this.isLoading = false;
                     })
-
-                // axios({url: 'http://localhost:3000/recipes', method: 'GET'})
-                //     .then((response:any) => {
-                //         this.recipes = response.data;
-                //     })
-                //     .catch((err:Error) => {
-                //         console.error(err);
-                //         this.recipes = [];
-                //     })
-                //     .finally(() => {
-                //         this.isLoading = false;
-                //     })
             })
         }
     },

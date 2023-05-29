@@ -49,7 +49,7 @@
     >
         <div v-if="isShowContent">
             <div class="recipe_preview-header">
-                <CrumbsGeneral />
+                <CrumbsGeneral :navList="[]" />
 
                 <div class="grid grid-cols-2 items-center">
                     <h1 class="font-bold title title-section">{{ recipe.name }}</h1>
@@ -61,7 +61,7 @@
                         </button>
                         <NuxtLink class="btn primary recipe_edit"
                                   @click="onEdit"
-                                  to="/recipe"
+                                  to="/recipes/0"
                         >
                             Редактировать
                         </NuxtLink>

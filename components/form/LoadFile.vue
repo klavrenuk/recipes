@@ -1,6 +1,12 @@
 <script lang="ts" setup>
     import {ref} from 'vue';
 
+    import {IRecipe} from "~/interfaces/Recipe";
+
+    const {recipe} = defineProps<{
+        recipe: IRecipe
+    }>();
+
     const file = ref<File | null>(null);
     const fileName = ref<string | null>(null);
     const selectedImg = ref<string | null>(null);
@@ -13,6 +19,12 @@
         const target = event.target as HTMLInputElement;
 
         if(target && target.files) {
+            const type = target.files[0].type || null;
+            if(
+                type !== "application/pdf" && type !== "application/wps-office.pdf" &&
+                type !== "image/jpg" && type !== "image/jpeg" && type !== "image/png"
+            ) return false;
+
             file.value = target.files[0];
             fileName.value = file.value.name;
             convertImg();
@@ -43,18 +55,43 @@
 
 <template>
     <div class="load_file">
-        <input type="file" id="File" ref="file"
-               class="load_file-input"
-               @change="handleFileUpload($event)"
-        />
-        <span class="load_file-name"
-              v-if="fileName"
-        >{{ fileName }}</span>
+        <div class="flex items-start">
+            <div v-if="selectedImg || (recipe && recipe.image)"
+                 class="load_file-wrap_img"
+            >
+                <img :src="selectedImg ? selectedImg : recipe.image"
+                     class="load_file-img"
+                     alt="выбранная картинка"
+                />
+            </div>
+
+            <div>
+                <input type="file" id="File" ref="file"
+                       class="load_file-input"
+                       accept="image/*"
+                       @change="handleFileUpload($event)"
+                />
+                <span class="load_file-name"
+                      v-if="fileName"
+                >{{ fileName }}</span>
+            </div>
+        </div>
     </div>
 </template>
 
 <style scoped lang="less">
     .load_file {
+        &-wrap_img {
+            padding-right: 2rem;
+        }
+
+        &-img {
+            height: 200px;
+            width: 200px;
+            display: inline-block;
+            object-fit: cover;
+        }
+
         &-input {
             color: transparent;
         }

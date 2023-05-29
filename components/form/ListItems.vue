@@ -2,9 +2,14 @@
     import {ref} from 'vue';
 
     import {IListItem} from '~/interfaces/Form';
+    import {IRecipe} from "~/interfaces/Recipe";
 
-    const list = ref<string[]>(['']);
-    const invalidItems = ref<number>([]);
+    const {defaultValue} = defineProps<{
+        defaultValue: string[]
+    }>();
+
+    const list = ref<string[]>(defaultValue ? defaultValue : ['']);
+    const invalidItems = ref<number[]>([]);
 
     const add = () => list.value.push('');
 
@@ -28,8 +33,14 @@
         return null;
     };
 
+    const clear = () => {
+        invalidItems.value = [];
+        list.value = [];
+    }
+
     defineExpose({
-        getValue
+        getValue,
+        clear
     });
 </script>
 
