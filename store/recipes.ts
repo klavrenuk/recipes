@@ -17,40 +17,40 @@ export const useRecipes = defineStore({
     }),
 
     actions: {
-        async create(recipe:IRecipe):Promise<void> {
-            const config = useRuntimeConfig();
-
-
-            fetch('https://my-json-server.typicode.com/klavrenuk/recipes/recipes', {
-                method: 'POST',
-                body: JSON.stringify({
-                    name: 'xxx'
-                }),
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                },
+        create(recipe:IRecipe):Promise<boolean> {
+            return new Promise((resolve, reject) => {
+                fetch('http://localhost:3000/recipes', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        ...recipe,
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    },
+                })
+                    .then((response) => response.json())
+                    .then((json) => resolve(true))
+                    .catch((err:Error) => reject(err))
             })
-                .then((response) => response.json())
-                .then((json) => console.log(json));
         },
 
 
-        async loadRecipes():Promise<void> {
-            this.isLoading = true;
+        async loadRecipes():Promise<boolean> {
+            return new Promise((resolve, reject) => {
+                this.isLoading = true;
 
-            axios({
-                url: 'https://my-json-server.typicode.com/klavrenuk/recipes/recipes',
-                method: 'GET'
+                axios({url: 'http://localhost:3000/recipes', method: 'GET'})
+                    .then((response:any) => {
+                        this.recipes = response.data;
+                    })
+                    .catch((err:Error) => {
+                        console.error(err);
+                        this.recipes = [];
+                    })
+                    .finally(() => {
+                        this.isLoading = false;
+                    })
             })
-                .then((response:unknown) => {
-                    console.log('response', response);
-                })
-                .catch((err:Error) => {
-                    console.error(err);
-                })
-                .finally(() => {
-                    this.isLoading = false;
-                })
         }
     },
 });

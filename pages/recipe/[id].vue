@@ -22,7 +22,9 @@
 </script>
 
 <template>
-    <div class="recipe">
+    <div class="recipe toggle_view_effect"
+         :class="{'active': recipe.id}"
+    >
         <div class="recipe-header">
             <CrumbsGeneral />
 
@@ -55,7 +57,7 @@
                     >
                         <div class="option-name">{{ option.label }}</div>
                         <div class="option-value">
-                            {{ recipe[option.key as keyof IRecipe].toString() }}
+<!--                            {{ recipe[option.key as keyof IRecipe].toString() }}-->
                         </div>
                     </li>
                 </ul>

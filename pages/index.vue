@@ -16,17 +16,6 @@
 
     onMounted(() => {
         recipesStore.loadRecipes();
-
-        const fake:IRecipe = {
-            id: 1,
-            name: "string",
-            description: 'description',
-            ingredients: ['1','2','3'],
-            image: '12312312',
-            time: 11
-        };
-
-        recipesStore.create(fake);
     })
 </script>
 
@@ -34,7 +23,7 @@
     <div class="recipes">
         <LoaderFullHeight v-if="recipesStore.isLoading" />
         <div v-else>
-            <RecipesEmpty v-if="!recipes[0]" />
+            <RecipesEmpty v-if="!recipesStore.recipes[0]" />
             <div v-else>
                 <h1 class="recipes-title font-bold title title-section">
                     Рецепты
