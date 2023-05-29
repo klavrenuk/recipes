@@ -4,13 +4,27 @@ const client_manifest = {
     "file": "HeaderGeneral.e88a86e9.css",
     "src": "HeaderGeneral.css"
   },
-  "_HeaderGeneral.3f1186c0.js": {
+  "LoaderFullHeight.css": {
+    "resourceType": "style",
+    "file": "LoaderFullHeight.ce58c30c.css",
+    "src": "LoaderFullHeight.css"
+  },
+  "_CrumbsGeneral.vue.866e41d7.js": {
+    "resourceType": "script",
+    "module": true,
+    "file": "CrumbsGeneral.vue.866e41d7.js",
+    "imports": [
+      "_nuxt-link.2ca94939.js",
+      "node_modules/nuxt/dist/app/entry.js"
+    ]
+  },
+  "_HeaderGeneral.9e78b5dc.js": {
     "resourceType": "script",
     "module": true,
     "css": [
       "HeaderGeneral.e88a86e9.css"
     ],
-    "file": "HeaderGeneral.3f1186c0.js",
+    "file": "HeaderGeneral.9e78b5dc.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
@@ -19,10 +33,33 @@ const client_manifest = {
     "file": "HeaderGeneral.e88a86e9.css",
     "resourceType": "style"
   },
-  "_nuxt-link.b613f9fa.js": {
+  "_LoaderFullHeight.4c00a5c6.js": {
     "resourceType": "script",
     "module": true,
-    "file": "nuxt-link.b613f9fa.js",
+    "css": [
+      "LoaderFullHeight.ce58c30c.css"
+    ],
+    "file": "LoaderFullHeight.4c00a5c6.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.js"
+    ]
+  },
+  "LoaderFullHeight.ce58c30c.css": {
+    "file": "LoaderFullHeight.ce58c30c.css",
+    "resourceType": "style"
+  },
+  "_nuxt-link.2ca94939.js": {
+    "resourceType": "script",
+    "module": true,
+    "file": "nuxt-link.2ca94939.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.js"
+    ]
+  },
+  "_recipes.b299c35c.js": {
+    "resourceType": "script",
+    "module": true,
+    "file": "recipes.b299c35c.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
@@ -30,10 +67,12 @@ const client_manifest = {
   "layouts/default.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "default.937ffc76.js",
+    "file": "default.7d66ac43.js",
     "imports": [
-      "_HeaderGeneral.3f1186c0.js",
-      "node_modules/nuxt/dist/app/entry.js"
+      "_LoaderFullHeight.4c00a5c6.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_recipes.b299c35c.js",
+      "_HeaderGeneral.9e78b5dc.js"
     ],
     "isDynamicEntry": true,
     "src": "layouts/default.vue"
@@ -47,10 +86,12 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "layout-recipes.222f566f.js",
+    "file": "layout-recipes.415985c6.js",
     "imports": [
-      "_HeaderGeneral.3f1186c0.js",
-      "node_modules/nuxt/dist/app/entry.js"
+      "node_modules/nuxt/dist/app/entry.js",
+      "_recipes.b299c35c.js",
+      "_HeaderGeneral.9e78b5dc.js",
+      "_LoaderFullHeight.4c00a5c6.js"
     ],
     "isDynamicEntry": true,
     "src": "layouts/layout-recipes.vue"
@@ -68,9 +109,9 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "error-404.65342e2e.js",
+    "file": "error-404.ac174771.js",
     "imports": [
-      "_nuxt-link.b613f9fa.js",
+      "_nuxt-link.2ca94939.js",
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
@@ -89,7 +130,7 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "error-500.279c0c2e.js",
+    "file": "error-500.f45f13b1.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -102,88 +143,95 @@ const client_manifest = {
   },
   "node_modules/nuxt/dist/app/entry.css": {
     "resourceType": "style",
-    "file": "entry.83a83b79.css",
+    "file": "entry.00f827e1.css",
     "src": "node_modules/nuxt/dist/app/entry.css"
   },
   "node_modules/nuxt/dist/app/entry.js": {
     "resourceType": "script",
     "module": true,
     "css": [
-      "entry.83a83b79.css"
+      "entry.00f827e1.css"
     ],
     "dynamicImports": [
       "layouts/default.vue",
       "layouts/layout-recipes.vue",
       "virtual:nuxt:C:/projects/recipes1/.nuxt/error-component.mjs"
     ],
-    "file": "entry.9bb0a4e0.js",
+    "file": "entry.b1933442.js",
     "isEntry": true,
     "src": "node_modules/nuxt/dist/app/entry.js"
   },
-  "entry.83a83b79.css": {
-    "file": "entry.83a83b79.css",
+  "entry.00f827e1.css": {
+    "file": "entry.00f827e1.css",
     "resourceType": "style"
   },
   "pages/index.css": {
     "resourceType": "style",
-    "file": "index.adf395c1.css",
+    "file": "index.47629297.css",
     "src": "pages/index.css"
   },
   "pages/index.vue": {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "index.3290fb47.js",
+    "file": "index.952f38ec.js",
     "imports": [
-      "node_modules/nuxt/dist/app/entry.js",
-      "_nuxt-link.b613f9fa.js"
+      "_recipes.b299c35c.js",
+      "_nuxt-link.2ca94939.js",
+      "node_modules/nuxt/dist/app/entry.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/index.vue"
   },
-  "index.adf395c1.css": {
-    "file": "index.adf395c1.css",
+  "index.47629297.css": {
+    "file": "index.47629297.css",
+    "resourceType": "style"
+  },
+  "pages/recipe-preview/index.css": {
+    "resourceType": "style",
+    "file": "index.701bf83a.css",
+    "src": "pages/recipe-preview/index.css"
+  },
+  "pages/recipe-preview/index.vue": {
+    "resourceType": "script",
+    "module": true,
+    "css": [],
+    "file": "index.26df2b90.js",
+    "imports": [
+      "_nuxt-link.2ca94939.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_CrumbsGeneral.vue.866e41d7.js",
+      "_recipes.b299c35c.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/recipe-preview/index.vue"
+  },
+  "index.701bf83a.css": {
+    "file": "index.701bf83a.css",
     "resourceType": "style"
   },
   "pages/recipe/[id].css": {
     "resourceType": "style",
-    "file": "_id_.9d9d060c.css",
+    "file": "_id_.462edea0.css",
     "src": "pages/recipe/[id].css"
   },
   "pages/recipe/[id].vue": {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "_id_.f081b56c.js",
+    "file": "_id_.9e0ce967.js",
     "imports": [
-      "_nuxt-link.b613f9fa.js",
-      "node_modules/nuxt/dist/app/entry.js"
+      "node_modules/nuxt/dist/app/entry.js",
+      "_recipes.b299c35c.js",
+      "_LoaderFullHeight.4c00a5c6.js",
+      "_CrumbsGeneral.vue.866e41d7.js",
+      "_nuxt-link.2ca94939.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/recipe/[id].vue"
   },
-  "_id_.9d9d060c.css": {
-    "file": "_id_.9d9d060c.css",
-    "resourceType": "style"
-  },
-  "pages/recipe/index.css": {
-    "resourceType": "style",
-    "file": "index.d78c231c.css",
-    "src": "pages/recipe/index.css"
-  },
-  "pages/recipe/index.vue": {
-    "resourceType": "script",
-    "module": true,
-    "css": [],
-    "file": "index.82777946.js",
-    "imports": [
-      "node_modules/nuxt/dist/app/entry.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "pages/recipe/index.vue"
-  },
-  "index.d78c231c.css": {
-    "file": "index.d78c231c.css",
+  "_id_.462edea0.css": {
+    "file": "_id_.462edea0.css",
     "resourceType": "style"
   },
   "virtual:nuxt:C:/projects/recipes1/.nuxt/error-component.mjs": {
@@ -193,7 +241,7 @@ const client_manifest = {
       "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
       "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue"
     ],
-    "file": "error-component.5e3cc0a3.js",
+    "file": "error-component.2853e33d.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],

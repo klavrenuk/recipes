@@ -65,18 +65,29 @@ export const useRecipes = defineStore({
         async loadRecipes():Promise<boolean> {
             return new Promise((resolve, reject) => {
                 this.isLoading = true;
+                // https://klavrenuk.github.io/recipes/
 
-                axios({url: 'http://localhost:3000/recipes', method: 'GET'})
-                    .then((response:any) => {
-                        this.recipes = response.data;
+                fetch('http://localhost:3000/recipes/')
+                    .then((response) => response.json())
+                    .then((json) => {
+                        resolve(json)
                     })
-                    .catch((err:Error) => {
-                        console.error(err);
-                        this.recipes = [];
-                    })
+                    .catch((err) => reject(err))
                     .finally(() => {
                         this.isLoading = false;
                     })
+
+                // axios({url: 'http://localhost:3000/recipes', method: 'GET'})
+                //     .then((response:any) => {
+                //         this.recipes = response.data;
+                //     })
+                //     .catch((err:Error) => {
+                //         console.error(err);
+                //         this.recipes = [];
+                //     })
+                //     .finally(() => {
+                //         this.isLoading = false;
+                //     })
             })
         }
     },

@@ -16,6 +16,7 @@
 
     onMounted(() => {
         recipesStore.loadRecipes();
+        console.log('hello new after');
     })
 </script>
 
