@@ -9,7 +9,7 @@
 <template>
     <div class="card_recipe">
         <div class="card_recipe-img">
-            <NuxtLink :to="'/recipes/' + recipe.id">
+            <NuxtLink :to="'/recipe-preview/' + recipe.id">
                 <img :src="recipe.image"
                      :alt="recipe.name"
                      loading="lazy"
@@ -17,7 +17,7 @@
             </NuxtLink>
         </div>
 
-        <NuxtLink :to="'/recipes/' + recipe.id"
+        <NuxtLink :to="'/recipe-preview/' + recipe.id"
                   class="card_recipe-name font-bold"
         >
             {{ recipe.name }}

@@ -4,7 +4,8 @@ import {IRecipe} from "~/interfaces/Recipe";
 interface TodoState {
     recipes: IRecipe[],
     isLoading: boolean,
-    recipe: Partial<IRecipe>
+    recipe: Partial<IRecipe> | null,
+    recipeCopy: IRecipe[]
 }
 
 export const useRecipes = defineStore({
@@ -12,6 +13,7 @@ export const useRecipes = defineStore({
 
     state: (): TodoState => ({
         recipes: [],
+        recipeCopy: [],
         isLoading: true,
         recipe: {}
     }),
@@ -27,6 +29,37 @@ export const useRecipes = defineStore({
 
         clearRecipe() {
             this.recipe = null;
+        },
+
+        remove(id:number):Promise<boolean> {
+            return new Promise((resolve, reject) => {
+                fetch('http://localhost:3000/recipes/' + id, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    },
+                })
+                    .then(() => resolve(true))
+                    .catch((err:Error) => reject(err))
+                    .finally(() => this.setLoading());
+            })
+        },
+
+        edit(recipe:IRecipe):Promise<boolean> {
+            return new Promise((resolve, reject) => {
+                fetch('http://localhost:3000/recipes/' + recipe.id, {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        ...recipe,
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    },
+                })
+                    .then((response) => resolve(true))
+                    .catch((err:Error) => reject(err))
+                    .finally(() => this.setLoading());
+            })
         },
 
         create(recipe:IRecipe):Promise<boolean> {
@@ -73,14 +106,32 @@ export const useRecipes = defineStore({
                     .then((response) => response.json())
                     .then((json) => {
                         this.recipes = json;
+                        this.recipeCopy = json;
                         resolve(true);
-
                     })
-                    .catch((err) => reject(err))
+                    .catch((err) => {
+                        this.recipes = [];
+                        this.recipeCopy = [];
+                        reject(err);
+                    })
                     .finally(() => {
                         this.isLoading = false;
                     })
             })
+        },
+
+        searchArticle(str:string|null) {
+            console.log('inner', str);
+            if(str === null) {
+                this.recipes = this.recipeCopy.slice();
+
+            } else {
+                this.recipes = this.recipeCopy.filter((recipe:IRecipe) => {
+                    if(recipe.name.toLowerCase().search(str.toLowerCase()) > -1) {
+                        return recipe;
+                    }
+                })
+            }
         },
 
         sortBy(type:string) {

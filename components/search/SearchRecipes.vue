@@ -1,16 +1,27 @@
 <script setup lang="ts">
-    import {ref} from 'vue';
+    import {ref, watch} from 'vue';
+    import { useRecipes } from '~/store/recipes';
+    import debounce from 'lodash.debounce'
 
-    const str = ref<string>('');
+    const str = ref<string|null>('');
+    const recipesStore = useRecipes();
+
+    const clear = () => str.value = null;
+
+    watch(str, debounce(() => {
+        recipesStore.searchArticle(str.value);
+    }, 500))
 </script>
 
 <template>
     <div class="search_recipes">
         <input class="search_recipes-input"
                placeholder="Искать рецепт"
-               v-model.trim="str"
+               v-model="str"
         />
-        <button class="search_recipes-btn_clear btn-icon"></button>
+        <button class="search_recipes-btn_clear btn-icon"
+            @click="clear"
+        ></button>
         <button class="search_recipes-btn_search btn btn-icon"></button>
     </div>
 </template>

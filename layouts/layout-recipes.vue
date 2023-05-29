@@ -16,7 +16,7 @@
 
         <div v-show="!recipesStore.isLoading">
             <HeaderGeneral>
-                <template>
+                <template #container>
                     <SearchRecipes />
                 </template>
             </HeaderGeneral>

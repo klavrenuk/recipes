@@ -4,6 +4,7 @@
     import CrumbsGeneral from '~/components/crumbs/CrumbsGeneral';
 
     import {IRecipe} from "~/interfaces/Recipe";
+    import {IRoute} from "~/interfaces/Route";
     import {IListOption} from '~/interfaces/Form';
     import {useRecipes} from "~/store/recipes";
 
@@ -20,13 +21,25 @@
     const {id, router} = useRoute().params;
     const recipesStore = useRecipes();
 
-    const recipe = ref<IRecipe|null>(null);
+    const recipe = ref<IRecipe>({});
     const isShowContent = ref<boolean>(false);
+    const navList:IRoute = [
+        {path: '/recipe-preview/' + id, name: 'Превью'}
+    ];
 
     const onEdit = () => recipesStore.setRecipe(recipe);
 
-    const onRemove = () => {
-        console.log('onremove');
+    const onRemove = async() => {
+        await recipesStore.remove(id);
+        location.href = '/';
+    }
+
+    const renderValue = (key:string) => {
+        const value = recipe.value[key as keyof IRecipe];
+        
+        if(value) return value.toString();
+
+        return '-';
     }
 
     onMounted(async() => {
@@ -39,6 +52,7 @@
 
         } catch(err) {
             console.error(err);
+            location.href = '/';
         }
     })
 </script>
@@ -49,7 +63,7 @@
     >
         <div v-if="isShowContent">
             <div class="recipe_preview-header">
-                <CrumbsGeneral :navList="[]" />
+                <CrumbsGeneral :navList="navList" />
 
                 <div class="grid grid-cols-2 items-center">
                     <h1 class="font-bold title title-section">{{ recipe.name }}</h1>
@@ -61,7 +75,7 @@
                         </button>
                         <NuxtLink class="btn primary recipe_edit"
                                   @click="onEdit"
-                                  to="/recipes/0"
+                                  :to="'/recipes/' + recipe.id"
                         >
                             Редактировать
                         </NuxtLink>
@@ -87,7 +101,7 @@
                             <div class="option-value"
                                  v-if="recipe"
                             >
-                                {{ recipe[option.key as keyof IRecipe].toString() }}
+                                {{  renderValue(option.key)  }}
                             </div>
                         </li>
                     </ul>
@@ -123,7 +137,9 @@
         }
 
         &-options {
+            max-width: 40%;
             padding-left: 35px;
+            overflow: hidden;
 
             &-item {
                 margin-bottom: 1rem;

@@ -69,14 +69,23 @@
 
     const onSave = async () =>  {
         try {
-            recipe.value.image = RefLoadFile.value[0].getValue();
+            if(!recipe.value.id || !recipe.value.image) {
+                recipe.value.image = RefLoadFile.value[0].getValue();
+            }
+            
             recipe.value.ingredients = RefIngredients.value[0].getValue();
 
             if(!isValidRecipe()) return
 
-            if(!recipe.value.id) recipe.value.id = new Date().getTime();
+            if(!recipe.value.id) {
+                recipe.value.id = new Date().getTime();
+                await recipesStore.create(recipe.value);
 
-            await recipesStore.create(recipe.value);
+            } else {
+                await recipesStore.edit(recipe.value);
+            }
+
+            
             location.href = '/';
 
         } catch(err) {
