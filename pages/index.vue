@@ -16,7 +16,17 @@
 
     onMounted(() => {
         recipesStore.loadRecipes();
-        // recipesStore.create();
+
+        const fake:IRecipe = {
+            id: 1,
+            name: "string",
+            description: 'description',
+            ingredients: ['1','2','3'],
+            image: '12312312',
+            time: 11
+        };
+
+        recipesStore.create(fake);
     })
 </script>
 

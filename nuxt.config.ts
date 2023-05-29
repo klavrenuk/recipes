@@ -1,10 +1,24 @@
 export default defineNuxtConfig({
     app: {
-        baseURL: '/recipes/'
+        baseURL: '/recipes/',
+        head: {
+            htmlAttrs: [
+                {lang: 'ru'}
+            ],
+            title: 'Recipes',
+            charset: 'utf-8',
+            viewport: 'width=device-width, initial-scale=1',
+        }
     },
     target: 'static',
     router: {
-        base: '/recipes/', //eg:- /crstnmac.github.io/
+        base: '/recipes/',
+    },
+
+    runtimeConfig: {
+        public: {
+            BASE_URL:  'https://my-json-server.typicode.com/klavrenuk/recipes'
+        }
     },
 
     tailwindcss: {

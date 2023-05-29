@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+    import {ref} from 'vue';
+
     import CrumbsGeneral from '~/components/crumbs/CrumbsGeneral';
 
     import {IRecipe} from "~/interfaces/Recipe";
@@ -8,14 +10,7 @@
         layout: 'default',
     });
 
-    const recipe:IRecipe = {
-        id: 1,
-        name: 'Recipes#1',
-        description: 'Arco is a not a theme but a special framework for website building. It is deeper than just a design. You can download this free WordPress theme along with the logo PSD file and create your own Logotype, upload it to your blog, band web page or corporate website. So all your web page appearance would be in the same style as it is supposed to be. Adjust several tooglers in the dashboard of your website and enjoy the visualization on the front end. So easy and fast! Get it and try out right away!\n',
-        ingredients: ['Banana', 'apple'],
-        image: '/images/category-title.svg',
-        time: 20
-    };
+    const recipe:IRecipe = ref({});
 
     const options:IListOption[] = [
         {key: 'name', label: 'Имя'},

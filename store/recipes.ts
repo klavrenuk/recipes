@@ -2,6 +2,7 @@ import axios from 'axios';
 import { defineStore } from 'pinia';
 import {IRecipe} from "~/interfaces/Recipe";
 
+
 interface TodoState {
     recipes: IRecipe[],
     isLoading: boolean
@@ -16,13 +17,14 @@ export const useRecipes = defineStore({
     }),
 
     actions: {
-        async create():Promise<void> {
+        async create(recipe:IRecipe):Promise<void> {
+            const config = useRuntimeConfig();
+
+
             fetch('https://my-json-server.typicode.com/klavrenuk/recipes/recipes', {
                 method: 'POST',
                 body: JSON.stringify({
-                    title: 'foo',
-                    body: 'bar',
-                    userId: 1,
+                    name: 'xxx'
                 }),
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
@@ -35,8 +37,6 @@ export const useRecipes = defineStore({
 
         async loadRecipes():Promise<void> {
             this.isLoading = true;
-
-            console.log('console.run');
 
             axios({
                 url: 'https://my-json-server.typicode.com/klavrenuk/recipes/recipes',

@@ -3,6 +3,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     'CrumbsGeneral': typeof import("../components/crumbs/CrumbsGeneral.vue")['default']
     'FormListItems': typeof import("../components/form/ListItems.vue")['default']
+    'FormLoadFile': typeof import("../components/form/LoadFile.vue")['default']
     'HeaderGeneral': typeof import("../components/header/HeaderGeneral.vue")['default']
     'LoaderFullHeight': typeof import("../components/loader/LoaderFullHeight.vue")['default']
     'RecipeCardRecipe': typeof import("../components/recipe/CardRecipe.vue")['default']
@@ -28,6 +29,7 @@ declare module 'vue' {
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
     'LazyCrumbsGeneral': typeof import("../components/crumbs/CrumbsGeneral.vue")['default']
     'LazyFormListItems': typeof import("../components/form/ListItems.vue")['default']
+    'LazyFormLoadFile': typeof import("../components/form/LoadFile.vue")['default']
     'LazyHeaderGeneral': typeof import("../components/header/HeaderGeneral.vue")['default']
     'LazyLoaderFullHeight': typeof import("../components/loader/LoaderFullHeight.vue")['default']
     'LazyRecipeCardRecipe': typeof import("../components/recipe/CardRecipe.vue")['default']
@@ -56,6 +58,7 @@ declare module 'vue' {
 
 export const CrumbsGeneral: typeof import("../components/crumbs/CrumbsGeneral.vue")['default']
 export const FormListItems: typeof import("../components/form/ListItems.vue")['default']
+export const FormLoadFile: typeof import("../components/form/LoadFile.vue")['default']
 export const HeaderGeneral: typeof import("../components/header/HeaderGeneral.vue")['default']
 export const LoaderFullHeight: typeof import("../components/loader/LoaderFullHeight.vue")['default']
 export const RecipeCardRecipe: typeof import("../components/recipe/CardRecipe.vue")['default']
@@ -81,6 +84,7 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyCrumbsGeneral: typeof import("../components/crumbs/CrumbsGeneral.vue")['default']
 export const LazyFormListItems: typeof import("../components/form/ListItems.vue")['default']
+export const LazyFormLoadFile: typeof import("../components/form/LoadFile.vue")['default']
 export const LazyHeaderGeneral: typeof import("../components/header/HeaderGeneral.vue")['default']
 export const LazyLoaderFullHeight: typeof import("../components/loader/LoaderFullHeight.vue")['default']
 export const LazyRecipeCardRecipe: typeof import("../components/recipe/CardRecipe.vue")['default']
