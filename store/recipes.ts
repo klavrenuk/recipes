@@ -1,11 +1,10 @@
 import { defineStore } from 'pinia';
 import {IRecipe} from "~/interfaces/Recipe";
 
-
 interface TodoState {
     recipes: IRecipe[],
     isLoading: boolean,
-    recipe: IRecipe
+    recipe: Partial<IRecipe>
 }
 
 export const useRecipes = defineStore({
@@ -66,10 +65,10 @@ export const useRecipes = defineStore({
             })
         },
 
-
-        async loadRecipes():Promise<boolean> {
+        async loadRecipes(isSetLoading = true):Promise<boolean> {
             return new Promise((resolve, reject) => {
-                this.isLoading = true;
+                if(isSetLoading) this.isLoading = true;
+
                 fetch('http://localhost:3000/recipes/')
                     .then((response) => response.json())
                     .then((json) => {
@@ -82,6 +81,24 @@ export const useRecipes = defineStore({
                         this.isLoading = false;
                     })
             })
+        },
+
+        sortBy(type:string) {
+            if(type === null) {
+                this.loadRecipes();
+                return;
+            }
+
+            this.recipes.sort((a:IRecipe, b:IRecipe) => {
+                switch (type) {
+                    case 'ingredients':
+                        return a.ingredients.length - b.ingredients.length;
+
+                    case 'time':
+                        return a.time - b.time;
+
+                }
+            });
         }
     },
 });

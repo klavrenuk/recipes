@@ -9,3 +9,8 @@ export interface IListOption {
 export interface IListItem {
     value: string
 }
+
+export interface ISelectOption {
+    value: string,
+    name: string
+}

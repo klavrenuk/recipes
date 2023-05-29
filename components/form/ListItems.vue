@@ -55,6 +55,7 @@
                        class="recipe_input"
                        :class="{'invalid': invalidItems.includes(index)}"
                        v-model="list[index]"
+                       @keyup.enter="add"
                 />
 
                 <button class="btn btn-icon list_items-item-icon"

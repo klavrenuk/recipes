@@ -6,30 +6,27 @@
         navList:IRoute[],
     }>();
 
-    const nav:IRoute[] = ref([
+    const nav = ref<IRoute[]>([
         {
             path: '/',
             name: 'Рецепты'
         },
         ...navList
     ]);
-
-    console.log('nav', nav.value);
 </script>
 
 <template>
-    <nav class="crumbs">
-        <NuxtLink v-for="(navItem,index) in nav"
-                  :to="navItem.path"
-                  class="crumbs-item"
+    <nav class="crumbs text-left">
+        <a v-for="(navItem,index) in nav"
+                  :href="navItem.path"
                   :class="index < nav.length - 1 ? '' : 'last'"
+           class="crumbs-item"
         >
             {{ navItem.name }}
             <span v-if="index < nav.length - 1"
                   cass="list-item-arrow"
             > > </span>
-
-        </NuxtLink>
+        </a>
     </nav>
 </template>
 

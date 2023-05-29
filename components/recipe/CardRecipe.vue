@@ -103,6 +103,7 @@
             font-size: 15px;
             line-height: 130%;
             white-space: normal;
+            overflow-wrap: break-word;
         }
     }
 </style>

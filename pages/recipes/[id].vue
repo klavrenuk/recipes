@@ -28,10 +28,10 @@
         {key: 'name', label: 'Имя', type: 'input', subtype: 'text', isRequired: true},
         {key: 'image', label: 'Картинка', type: 'image', isRequired: true},
         {key: 'ingredients', label: 'Ингредиенты', type: 'listItems', isRequired: true},
-        {key: 'time', label: 'Время готовка(мин)', type: 'input', subtype: 'number'},
+        {key: 'time', label: 'Время готовка(мин)', type: 'input', subtype: 'number', isRequired: true},
         {key: 'description', label: 'Описание', type: 'textarea'}
     ];
-    const navList:IRoute = ref([]);
+    const navList = ref<IRoute[]>([]);
 
     const isValidRecipe = ():boolean => {
         invalidOptions.value = [];
@@ -51,7 +51,7 @@
                     invalidOptions.value.push(option.key);
                 }
 
-                if(option.subtype === 'number' && (Number(value) || Number.isNaN(value))) {
+                if(option.subtype === 'number' && (Number(value) && Number.isNaN(value))) {
                     invalidOptions.value.push(option.key);
                 }
 
@@ -72,13 +72,12 @@
             recipe.value.image = RefLoadFile.value[0].getValue();
             recipe.value.ingredients = RefIngredients.value[0].getValue();
 
-            console.log('onSave', recipe.value);
-
             if(!isValidRecipe()) return
 
             if(!recipe.value.id) recipe.value.id = new Date().getTime();
 
             await recipesStore.create(recipe.value);
+            location.href = '/';
 
         } catch(err) {
             console.error(err);
@@ -88,10 +87,7 @@
         }
     }
 
-    const refresh = () => {
-        console.log('refresh');
-        recipe.value = {};
-    }
+    const refresh = () => recipe.value = {};
 
     const setNavList = () => {
         let name = 'Рецепт';
@@ -112,7 +108,6 @@
     onMounted(async () => {
         try {
             if(id !== 'null') {
-                console.log('in null');
                 recipe.value = await recipesStore.getRecipe(id);
                 title.value = 'Редактирование ' + recipe.value.name;
             }
