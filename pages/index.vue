@@ -21,8 +21,7 @@
 
 <template>
     <div class="recipes">
-        <LoaderFullHeight v-if="recipesStore.isLoading" />
-        <div v-else>
+        <div>
             <RecipesEmpty v-if="!recipesStore.recipes[0]" />
             <div v-else>
                 <h1 class="recipes-title font-bold title title-section">

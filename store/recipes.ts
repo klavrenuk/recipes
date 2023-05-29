@@ -5,7 +5,8 @@ import {IRecipe} from "~/interfaces/Recipe";
 
 interface TodoState {
     recipes: IRecipe[],
-    isLoading: boolean
+    isLoading: boolean,
+    recipe: IRecipe | null
 }
 
 export const useRecipes = defineStore({
@@ -14,9 +15,18 @@ export const useRecipes = defineStore({
     state: (): TodoState => ({
         recipes: [],
         isLoading: true,
+        recipe: null
     }),
 
     actions: {
+        setRecipe(recipe:IRecipe) {
+            this.recipe = recipe;
+        },
+
+        clearRecipe() {
+            this.recipe = null;
+        },
+
         create(recipe:IRecipe):Promise<boolean> {
             return new Promise((resolve, reject) => {
                 fetch('http://localhost:3000/recipes', {
@@ -31,6 +41,23 @@ export const useRecipes = defineStore({
                     .then((response) => response.json())
                     .then((json) => resolve(true))
                     .catch((err:Error) => reject(err))
+            })
+        },
+
+
+        getRecipe(id: number):Promise<IRecipe|null> {
+            return new Promise((resolve, reject) => {
+                this.isLoading = true;
+
+                fetch('http://localhost:3000/recipes/' + id)
+                    .then((response) => response.json())
+                    .then((json) => {
+                        resolve(json)
+                    })
+                    .catch((err) => reject(err))
+                    .finally(() => {
+                        this.isLoading = false;
+                    })
             })
         },
 
