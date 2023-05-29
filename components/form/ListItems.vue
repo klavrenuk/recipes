@@ -10,8 +10,28 @@
 
     const list = ref<string[]>(defaultValue ? defaultValue : ['']);
     const invalidItems = ref<number[]>([]);
+    const RefInput = ref(null);
 
-    const add = () => list.value.push('');
+    const add = () => {
+        list.value.push('');
+        setFocusForLastInput();
+
+    }
+
+    const setFocusForLastInput = () => {
+        setTimeout(() => {
+            if(Array.isArray(RefInput.value)) {
+                RefInput.value[RefInput.value.length - 1].focus();
+            }
+        }, 0);
+    }
+
+    const onEnter = (index:number) => {
+        if(RefInput.value && RefInput.value.length - 1 === index) {
+            setFocusForLastInput();
+            add();
+        }
+    }
 
     const remove = (index:number) => list.value.splice(index, 1);
 
@@ -55,7 +75,8 @@
                        class="recipe_input"
                        :class="{'invalid': invalidItems.includes(index)}"
                        v-model="list[index]"
-                       @keyup.enter="add"
+                       @keyup.enter="onEnter(index)"
+                       ref="RefInput"
                 />
 
                 <button class="btn btn-icon list_items-item-icon"

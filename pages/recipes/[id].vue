@@ -4,13 +4,11 @@
 
     import ListItems from '~/components/form/ListItems';
     import LoadFile from '~/components/form/LoadFile';
-    import LoaderFullHeight from '~/components/loader/LoaderFullHeight';
     import Crumbs from '~/components/crumbs/CrumbsGeneral';
 
     import {IRecipe} from "~/interfaces/Recipe";
     import {IListOption} from "~/interfaces/Form";
     import {IRoute} from "~/interfaces/Route";
-
 
     type TRecipe = Partial<IRecipe>;
 
@@ -77,6 +75,7 @@
 
             if(!isValidRecipe()) return
 
+            isLoading.value = true;
             if(!recipe.value.id) {
                 recipe.value.id = new Date().getTime();
                 await recipesStore.create(recipe.value);
@@ -84,7 +83,6 @@
             } else {
                 await recipesStore.edit(recipe.value);
             }
-
             
             location.href = '/';
 
@@ -92,7 +90,9 @@
             console.error(err);
 
         } finally {
-            isLoading.value = false;
+            setTimeout(() => {
+                isLoading.value = false;
+            }, 1000);
         }
     }
 
@@ -135,7 +135,9 @@
 
 <template>
     <div class="recipe">
-        <div v-if="isShowContent">
+        <div v-if="isShowContent"
+             v-show="!isLoading"
+        >
             <Crumbs :navList="navList" />
 
             <h1 class="recipe-title font-bold">{{ title }}</h1>
